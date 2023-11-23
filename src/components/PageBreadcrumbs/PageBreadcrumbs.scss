@@ -1,0 +1,17 @@
+//--breadcrumbs-fs: 16px;
+.breadcrumbs {
+    text-align: left;
+    font-size: var(--breadcrumbs-fs);
+    color: var(--dynamic-title-color);
+  }
+  .link {
+    margin-right: 5px;
+    color: var(--dynamic-breadcrumbs-color);
+    font-size: var(--link-fs);
+    text-decoration: none;
+  }
+  .active-link {
+    color: var(--dynamic-breadcrumbs-color);
+    pointer-events: none;
+  }
+  

@@ -5,21 +5,28 @@
         $router.push({
           name: 'post',
           params: {
-            id: post.id
+            id: item.id
           },
           query: $route.query
         })
       "
-      :key="post.id"
-      v-for="post of posts"
+      :key="item.id"
+      v-for="item of data"
     >
-      {{ post.post }}
+      {{ item.id + ' ' + item.title }}
     </li>
   </ul>
 </template>
 
 <script setup lang="ts">
-import { posts } from '@/mock/posts';
+import { ref, watchEffect } from 'vue';
+//import { posts } from '@/mock/posts';
+import { Connect } from '@/connection/ConnectionAxios';
+
+const data = ref<{ [key: string]: any }>([]);
+watchEffect(async () => {
+  Connect().then((resp) => (data.value = resp.data));
+});
 </script>
 
 <style src="./PostsView,style.scss" lang="scss" scoped></style>

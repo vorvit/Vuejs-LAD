@@ -12,7 +12,8 @@ const router = createRouter({
       component: MainView,
       meta: {
         layout: MainLayout,
-        title: 'Main Page'
+        title: 'Main Page',
+        breadcrumb: []
       }
     },
     {
@@ -21,7 +22,13 @@ const router = createRouter({
       component: () => import('@/views/PostsView/PostsView.vue'),
       meta: {
         layout: MainLayout,
-        title: 'Posts'
+        title: 'Posts',
+        breadcrumb: [
+          {
+            path: PathNames.HOME,
+            title: 'Main Page'
+          }
+        ]
       }
     },
     {
@@ -30,7 +37,32 @@ const router = createRouter({
       component: () => import('@/views/PostView/PostView.vue'),
       meta: {
         layout: MainLayout,
-        title: `Post`
+        title: 'Post',
+        breadcrumb: [
+          {
+            path: PathNames.HOME,
+            title: 'Main Page'
+          },
+          {
+            path: PathNames.POSTS,
+            title: 'Posts'
+          }
+        ]
+      }
+    },
+    {
+      path: Links.FORM,
+      name: PathNames.FORM,
+      component: () => import('@/views/FormView/FormView.vue'),
+      meta: {
+        layout: MainLayout,
+        title: 'Form',
+        breadcrumb: [
+          {
+            path: PathNames.HOME,
+            title: 'Main Page'
+          }
+        ]
       }
     }
   ]

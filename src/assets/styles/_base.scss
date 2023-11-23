@@ -1,5 +1,16 @@
+@import 'variables.scss';
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
+  
+  --dynamic-background-color: #{$secondary};
+  --dynamic-background-nav-color: #{$tertiary};
+  --dynamic-title-color: #{$tertiary};
+  --dynamic-button-color: #{$secondary};
+  --dynamic-color: #{$quaternary};
+  --dynamic-nav-color: #{$sixfold};
+  --dynamic-nav-active-color: #{$fivefold};
+  --dynamic-breadcrumbs-color: #{$quaternary};
+
   //colors
   --grey: grey;
   --dark-gray: darkgray;
@@ -11,11 +22,15 @@
   --title-fs: 32px;
   --link-fs: 20px;
   --post-fs: 20px;
+  --breadcrumbs-fs: 18px;
+  --h3-fs: 25px;
 
   @media (max-width: 768px) {
     --title-fs: 28px;
     --link-fs: 16px;
     --post-fs: 16px;
+    --breadcrumbs-fs: 14px;
+    --h3-fs: 20px;
   }
 
   //font-weight

@@ -14,6 +14,12 @@
           :to="{ name: PathNames.POSTS, query: $route.query }"
           >Posts</router-link
         >
+        <router-link
+          active-class="active-link"
+          class="link"
+          :to="{ name: PathNames.FORM, query: $route.query }"
+        >Form</router-link
+        >
       </nav>
       <div>
         <ThemeSwitcher v-if="device !== 'desktop'" />

@@ -1,8 +1,8 @@
 <template>
   <div :class="contentClasses">
     <PageContainer :is-full-width="device === 'mobile' ? true : false" :width="deviceWidth">
-      {{ $route.meta.title }}
-      <v-divider v-if="$route.meta.title"></v-divider>
+      <slot name="breadcrumbs"></slot>
+      <h3>{{ $route.meta.title }}</h3>
       <slot></slot>
     </PageContainer>
   </div>
