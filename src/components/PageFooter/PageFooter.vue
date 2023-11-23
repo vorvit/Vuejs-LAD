@@ -1,30 +1,16 @@
 <template>
-  <footer @click="emits('footerEmit', 'my-footer')" class="footer">
-    {{ user }}
-    <button @click="incrAge">incrAgeFooter</button>
-  </footer>
+  <footer :class="footerClasses">LAD-Academy</footer>
 </template>
 
 <script setup lang="ts">
-import { toRefs } from 'vue';
-import type { IFooterEmits, IPropsFooter } from './PageFooter.types';
+import { useTheme } from '@/composables/useTheme';
+import { computed } from 'vue';
 
-const props = withDefaults(defineProps<IPropsFooter>(), {
-  user: () => {
-    return { userName: 'DefaultUserName', age: 10 };
-  }
+const { isDarkTheme } = useTheme();
+
+const footerClasses = computed(() => {
+  return { footer: true, ['dark-footer']: isDarkTheme.value };
 });
-
-const { user } = toRefs(props);
-
-const emits = defineEmits<IFooterEmits>();
-
-console.log(props.user);
 </script>
 
 <style src="./PageFooter.style.scss" lang="scss" scoped></style>
-<style lang="scss" scoped>
-.footer {
-  color: green;
-}
-</style>
